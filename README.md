@@ -25,13 +25,6 @@ cd stock-dayofweek-trends
 
 ### 2. Install dependencies
 
-Create a virtual environment (optional):
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
 Install required packages:
 
 ```bash
@@ -41,6 +34,7 @@ pip install -r requirements.txt
 > **Requirements:**
 > - `yfinance`
 > - `pandas`
+> - `matplotlib`
 > - `numpy`
 
 Or install them manually:
@@ -68,24 +62,52 @@ python3 stock_analysis-with-rec.py --ticker MSFT --period 5y
 
 ## 📌 Output Example
 
-```bash
-[*********************100%***********************]  1 of 1 completed
+### Text Recommendation: stock-dayofweek-trends/output/MSFT_1y_May-01-2025_09-46-29_AM_log.txt
 
---- Stock Analysis for MSFT (5y) ---
-Latest Price: $314.27
-Mean: $260.41
-Median: $273.91
-Std Dev: $47.24
-Max: $366.78
-Min: $133.19
+Stock Ticker: MSFT
+Data Period: 1y
+Data Source: Yahoo Finance
 
-Day of Week Performance:
-  Monday: Mean $251.11
-  Tuesday: Mean $263.87
-  ...
+Metric Explanations:
+- Average Return: Mean daily return by day of week
+- Median Return: Median daily return by day of week
+- Standard Deviation: Volatility of return on each weekday
+- Volatility: Std Dev divided by abs(mean), to standardize
+- Buy/Sell Score: (Median + Average Return) / Volatility
+  Higher score = potentially better day to buy (stronger returns, more consistent)
 
-Recommendation Score: 4/5 - Strong Buy
-```
+=== Metrics by Day ===
+           Average Return  Median Return  Standard Deviation  Volatility  Buy/Sell Score
+DayOfWeek                                                                               
+Monday          -0.001356      -0.000644            0.012075    8.905831       -0.000225
+Tuesday          0.002678       0.003920            0.011379    4.249132        0.001553
+Wednesday        0.004435       0.003096            0.021121    4.762561        0.001581
+Thursday        -0.002467      -0.001331            0.022177    8.990508       -0.000422
+Friday          -0.000616       0.001109            0.013130   21.306591        0.000023
+
+Best Day to Buy: Wednesday (Highest Buy/Sell Score)
+Recent 4 Prices on Buy Day:
+            Share Price
+Date                   
+2025-04-09   390.489990
+2025-04-16   371.609985
+2025-04-23   374.390015
+2025-04-30   395.260010
+
+Best Day to Sell: Thursday (Lowest Buy/Sell Score)
+Recent 4 Prices on Sell Day:
+            Share Price
+Date                   
+2025-04-10   381.350006
+2025-04-17   367.779999
+2025-04-24   387.299988
+2025-05-01   434.230011
+
+📈 Recommendation Score for this week: 3.0/10
+
+
+### Chart: stock-dayofweek-trends/output/MSFT_1y_May-01-2025_09-46-29_AM_metrics.png
+![MSFT May 1st, 2025 analysis results for 1 year period](https://file%2B.vscode-resource.vscode-cdn.net/Users/andrewfagan/Desktop/Projects/python/stock-dayofweek-trends/output/MSFT_1y_May-01-2025_09-46-29_AM_metrics.png?version%3D1748533065829)
 
 ---
 
@@ -131,4 +153,4 @@ This project is open-source under the [MIT License](LICENSE).
 ## 🙌 Acknowledgments
 
 - [Yahoo Finance](https://finance.yahoo.com/) via `yfinance`
-- `pandas` and `numpy` for data manipulation
+- `pandas`, `matplotlib` and `numpy` for data manipulation/display
