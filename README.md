@@ -40,7 +40,7 @@ pip install -r requirements.txt
 Or install them manually:
 
 ```bash
-pip install yfinance pandas numpy
+pip install yfinance pandas matplotlib numpy 
 ```
 
 ### 3. Run the script
@@ -64,50 +64,11 @@ python3 stock_analysis-with-rec.py --ticker MSFT --period 5y
 
 ### Text Recommendation: stock-dayofweek-trends/output/MSFT_1y_May-01-2025_09-46-29_AM_log.txt
 
-Stock Ticker: MSFT
-Data Period: 1y
-Data Source: Yahoo Finance
-
-Metric Explanations:
-- Average Return: Mean daily return by day of week
-- Median Return: Median daily return by day of week
-- Standard Deviation: Volatility of return on each weekday
-- Volatility: Std Dev divided by abs(mean), to standardize
-- Buy/Sell Score: (Median + Average Return) / Volatility
-  Higher score = potentially better day to buy (stronger returns, more consistent)
-
-=== Metrics by Day ===
-           Average Return  Median Return  Standard Deviation  Volatility  Buy/Sell Score
-DayOfWeek                                                                               
-Monday          -0.001356      -0.000644            0.012075    8.905831       -0.000225
-Tuesday          0.002678       0.003920            0.011379    4.249132        0.001553
-Wednesday        0.004435       0.003096            0.021121    4.762561        0.001581
-Thursday        -0.002467      -0.001331            0.022177    8.990508       -0.000422
-Friday          -0.000616       0.001109            0.013130   21.306591        0.000023
-
-Best Day to Buy: Wednesday (Highest Buy/Sell Score)
-Recent 4 Prices on Buy Day:
-            Share Price
-Date                   
-2025-04-09   390.489990
-2025-04-16   371.609985
-2025-04-23   374.390015
-2025-04-30   395.260010
-
-Best Day to Sell: Thursday (Lowest Buy/Sell Score)
-Recent 4 Prices on Sell Day:
-            Share Price
-Date                   
-2025-04-10   381.350006
-2025-04-17   367.779999
-2025-04-24   387.299988
-2025-05-01   434.230011
-
-📈 Recommendation Score for this week: 3.0/10
-
+<img width="476" alt="Screen Shot 2025-05-29 at 8 59 02 AM" src="https://github.com/user-attachments/assets/deecc3f3-eed0-4b1c-bbe4-b24c93e833c0" />
 
 ### Chart: stock-dayofweek-trends/output/MSFT_1y_May-01-2025_09-46-29_AM_metrics.png
-![MSFT May 1st, 2025 analysis results for 1 year period](https://file%2B.vscode-resource.vscode-cdn.net/Users/andrewfagan/Desktop/Projects/python/stock-dayofweek-trends/output/MSFT_1y_May-01-2025_09-46-29_AM_metrics.png?version%3D1748533065829)
+
+![MSFT_1y_May-01-2025_09-46-29_AM_metrics](https://github.com/user-attachments/assets/2cf6dd99-1b0b-4505-8280-e31997179a75)
 
 ---
 
